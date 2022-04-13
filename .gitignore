@@ -1,0 +1,10 @@
+﻿Fibonacci.API/bin
+Fibonacci.API/obj
+Fibonacci.Application/bin
+Fibonacci.Application/obj
+Fibonacci.Domain/bin
+Fibonacci.Domain/obj
+Fibonacci.Infrastructure/bin
+Fibonacci.Infrastructure/obj
+Fibonacci.UI/.vscode
+.vs

@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  ui:
+    build: 
+      context: ./Fibonacci.UI
+      dockerfile: Dockerfile
+    container_name: fibonacci.ui
+    ports: 
+      - 8080:80
+  api:
+    build:
+      context: ./
+      dockerfile: ./Fibonacci.API/Dockerfile
+    container_name: fibonacci.api
+    ports:
+      - 44363:443
+      - 42394:80
+  db:
+    build: 
+      context: ./Fibonacci.DB
+      dockerfile: Dockerfile
+    container_name: fibonacci.db
+    environment:
+      MYSQL_ROOT_PASSWORD: password-1
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_user_pass
+    ports:
+      - "6033:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+volumes:
+  dbdata:

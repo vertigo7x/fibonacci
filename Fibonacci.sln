@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.API", "Fibonacci.API\Fibonacci.API.csproj", "{68C47F0D-78A7-4B44-AAED-5819A4185BEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Domain", "Fibonacci.Domain\Fibonacci.Domain.csproj", "{A36EE74E-74FE-451A-A184-6C661F1BFE7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Infrastructure", "Fibonacci.Infrastructure\Fibonacci.Infrastructure.csproj", "{359812EE-773F-4441-A509-28E78F40D63E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Application", "Fibonacci.Application\Fibonacci.Application.csproj", "{695DE652-3020-444E-BE06-5DFFC076A04F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7016E2C4-F926-44D0-9083-45078FAE8DCE}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68C47F0D-78A7-4B44-AAED-5819A4185BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68C47F0D-78A7-4B44-AAED-5819A4185BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68C47F0D-78A7-4B44-AAED-5819A4185BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68C47F0D-78A7-4B44-AAED-5819A4185BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A36EE74E-74FE-451A-A184-6C661F1BFE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36EE74E-74FE-451A-A184-6C661F1BFE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36EE74E-74FE-451A-A184-6C661F1BFE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A36EE74E-74FE-451A-A184-6C661F1BFE7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{359812EE-773F-4441-A509-28E78F40D63E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{359812EE-773F-4441-A509-28E78F40D63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{359812EE-773F-4441-A509-28E78F40D63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{359812EE-773F-4441-A509-28E78F40D63E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{695DE652-3020-444E-BE06-5DFFC076A04F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{695DE652-3020-444E-BE06-5DFFC076A04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{695DE652-3020-444E-BE06-5DFFC076A04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{695DE652-3020-444E-BE06-5DFFC076A04F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E30DCFE-E8DB-4BA0-A23E-4CF71BD8A371}
+	EndGlobalSection
+EndGlobal
