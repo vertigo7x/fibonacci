@@ -19,6 +19,9 @@ To get it running, just go to the root folder of the solution and execute:
 docker compose up -d
 ```
 
+Go to your favourite browser and open:
+[https://localhost:8080](http://localhost:8080)
+
 ### Stop the containers
 To stop the containers, just execute the following command in the root folder of the project:
 ```
