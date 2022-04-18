@@ -1,21 +1,21 @@
 version: '3'
 
 services:
-  ui:
-    build: 
-      context: ./Fibonacci.UI
-      dockerfile: Dockerfile
-    container_name: fibonacci.ui
-    ports: 
-      - 8080:80
-  api:
-    build:
-      context: ./
-      dockerfile: ./Fibonacci.API/Dockerfile
-    container_name: fibonacci.api
-    ports:
-      - 44363:443
-      - 42394:80
+  #ui:
+  #  build: 
+  #    context: ./Fibonacci.UI
+  #    dockerfile: Dockerfile
+  #  container_name: fibonacci.ui
+  #  ports: 
+  #    - 8080:80
+  #api:
+  #  build:
+  #    context: ./
+  #    dockerfile: ./Fibonacci.API/Dockerfile
+  #  container_name: fibonacci.api
+  #  ports:
+  #    - 44363:443
+  #    - 42394:80
   db:
     build: 
       context: ./Fibonacci.DB
