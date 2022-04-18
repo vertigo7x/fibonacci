@@ -3,17 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.API", "Fibonacci.API\Fibonacci.API.csproj", "{68C47F0D-78A7-4B44-AAED-5819A4185BEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci.API", "Fibonacci.API\Fibonacci.API.csproj", "{68C47F0D-78A7-4B44-AAED-5819A4185BEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Domain", "Fibonacci.Domain\Fibonacci.Domain.csproj", "{A36EE74E-74FE-451A-A184-6C661F1BFE7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci.Domain", "Fibonacci.Domain\Fibonacci.Domain.csproj", "{A36EE74E-74FE-451A-A184-6C661F1BFE7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Infrastructure", "Fibonacci.Infrastructure\Fibonacci.Infrastructure.csproj", "{359812EE-773F-4441-A509-28E78F40D63E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci.Infrastructure", "Fibonacci.Infrastructure\Fibonacci.Infrastructure.csproj", "{359812EE-773F-4441-A509-28E78F40D63E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Application", "Fibonacci.Application\Fibonacci.Application.csproj", "{695DE652-3020-444E-BE06-5DFFC076A04F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci.Application", "Fibonacci.Application\Fibonacci.Application.csproj", "{695DE652-3020-444E-BE06-5DFFC076A04F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7016E2C4-F926-44D0-9083-45078FAE8DCE}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global

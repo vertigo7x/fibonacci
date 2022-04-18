@@ -4,7 +4,7 @@ FROM mysql:latest as builder
 RUN ["sed", "-i", "s/exec \"$@\"/echo \"not running $@\"/", "/usr/local/bin/docker-entrypoint.sh"]
 
 # needed for intialization
-ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_ROOT_PASSWORD=password-1
 
 COPY setup.sql /docker-entrypoint-initdb.d/
 

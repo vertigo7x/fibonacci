@@ -26,7 +26,6 @@ services:
       dockerfile: Dockerfile
     container_name: fibonacci.db
     environment:
-      MYSQL_ROOT_PASSWORD: password-1
       MYSQL_DATABASE: app_db
       MYSQL_USER: db_user
       MYSQL_PASSWORD: db_user_pass
