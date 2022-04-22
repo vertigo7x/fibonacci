@@ -8,5 +8,6 @@ namespace Fibonacci.Infrastructure.Repositories
         public Task<List<FibonacciNumberDto>> GetAll();
         public Task<FibonacciNumberDto> Create(FibonacciNumberModel fibonacciNumber);
         public Task<FibonacciNumberDto> Search(FibonacciNumberDto fibonacciNumber);
+        public Task<FibonacciNumberDto> GetMaxIndex();
     }
 }

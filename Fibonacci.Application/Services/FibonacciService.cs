@@ -30,5 +30,10 @@ namespace Fibonacci.Application.Services
         {
             return _repository.Search(fibonacciNumber);
         }
+
+        public Task<FibonacciNumberDto> GetMaxIndex()
+        {
+            return _repository.GetMaxIndex();
+        }
     }
 }
