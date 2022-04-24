@@ -59,11 +59,5 @@ namespace Fibonacci.Infrastructure.Repositories
             var fibonacciNumberExist = await _context.FibonacciNumbers.Where(x => x.SequenceIndex == fibonacciNumber.SequenceIndex).FirstOrDefaultAsync();
             return fibonacciNumberExist != null? new FibonacciNumberDto(fibonacciNumberExist): fibonacciNumber;
         }
-
-        public async Task<FibonacciNumberDto> GetMaxIndex()
-        {
-            var maxIndex = await _context.FibonacciNumbers.MaxAsync(x => x.SequenceIndex);
-            return new FibonacciNumberDto(maxIndex);
-        }
     }
 }

@@ -25,8 +25,7 @@ namespace Fibonacci.Application.Commands
 
             if (fibonacciNumberSearchResult.Number == 0)
             {
-                var maxIndex = await _service.GetMaxIndex();
-                var fibonacciNumber = CalculateFibonacciNumberBySequenceIndex(fibonacciDto.SequenceIndex, maxIndex.Number);
+                var fibonacciNumber = CalculateFibonacciNumberBySequenceIndex(fibonacciDto.SequenceIndex);
                 var fibonacciDtoResult =  await _service.Create(new FibonacciNumberModel(fibonacciDto.SequenceIndex, fibonacciNumber));
                 fibonacciDtoResult.Status = "200";
                 fibonacciDtoResult.Message = "Fibonacci nth number calculated";
@@ -40,7 +39,7 @@ namespace Fibonacci.Application.Commands
             
         }
 
-        private long CalculateFibonacciNumberBySequenceIndex(long index, long startIndex)
+        private long CalculateFibonacciNumberBySequenceIndex(long index)
         {
             if ((index == 0) || (index == 1))
             {
@@ -48,11 +47,7 @@ namespace Fibonacci.Application.Commands
             }
             else
             {
-                if (index <= startIndex)
-                {
-                    index = startIndex;
-                }
-                return (CalculateFibonacciNumberBySequenceIndex(index - 1, startIndex) + CalculateFibonacciNumberBySequenceIndex(index - 2, startIndex));
+                return (CalculateFibonacciNumberBySequenceIndex(index - 1) + CalculateFibonacciNumberBySequenceIndex(index - 2));
             }
         }
     }
