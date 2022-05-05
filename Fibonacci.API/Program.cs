@@ -1,32 +1,21 @@
-using Fibonacci.Application.Services;
-using Fibonacci.Infrastructure.DataAccess;
-using Fibonacci.Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
+using Fibonacci.Application.Extensions;
+using Fibonacci.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContextPool<FibonacciContext>(options =>
-{
-    var serverVersion = new MySqlServerVersion(new Version(5, 7, 37));
-    options.UseMySql(builder.Configuration.GetConnectionString("mysql"),
-                   serverVersion,
-                   mysqlOptions =>
-                   {
-
-                       mysqlOptions.EnableRetryOnFailure(1, TimeSpan.FromSeconds(5), null);
-                   });
-});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Repository & Service registration
-builder.Services.AddScoped<IFibonacciNumberRepository, FibonacciNumberRepository>();
-builder.Services.AddScoped<IFibonacciService, FibonacciService>();
+// Repository & Context registration
+builder.Services.AddInfrastructureComponents(builder.Configuration);
+
+// Register Application Components
+builder.Services.AddApplicationComponents();
 
 var app = builder.Build();
 
