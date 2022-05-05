@@ -8,3 +8,5 @@ Fibonacci.Infrastructure/bin
 Fibonacci.Infrastructure/obj
 Fibonacci.UI/.vscode
 .vs
+*/bin
+*/obj

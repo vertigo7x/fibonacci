@@ -1,6 +1,5 @@
 ﻿using Fibonacci.Application.Commands;
 using Fibonacci.Application.Queries;
-using Fibonacci.Application.Services;
 using Fibonacci.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,19 +12,22 @@ namespace Fibonacci.API.Controllers
     public class FibonacciController : ControllerBase
     {
 
-        private readonly IFibonacciService _service;
+        private readonly CreateFibonacciNumber _createFibonacciNumber;
+        private readonly ReadFibonacciNumbers _readFibonacciNumbers;
+        private readonly SearchFibonacciIndex _searchFibonacciIndex;
 
-        public FibonacciController(IFibonacciService service)
+        public FibonacciController(CreateFibonacciNumber createFibonacciNumber, ReadFibonacciNumbers readFibonacciNumbers, SearchFibonacciIndex searchFibonacciIndex)
         {
-            _service = service;
+            _createFibonacciNumber = createFibonacciNumber;
+            _readFibonacciNumbers = readFibonacciNumbers;
+            _searchFibonacciIndex = searchFibonacciIndex;
         }
 
         // GET: api/<FibonacciController>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FibonacciNumberDto>>> GetAll()
         {
-            var query = new ReadFibonacciNumbers(_service);
-            var fibonacciNumbersList = await query.Handle();
+            var fibonacciNumbersList = await _readFibonacciNumbers.Handle();
             return Ok(fibonacciNumbersList);
         }
 
@@ -33,8 +35,7 @@ namespace Fibonacci.API.Controllers
         [HttpGet("{index}")]
         public async Task<ActionResult<FibonacciNumberDto>> Find(int index)
         {
-            var query = new SearchFibonacciIndex(_service);
-            var fibonacciNumberSearchResult = await query.Handle(index);
+            var fibonacciNumberSearchResult = await _searchFibonacciIndex.Handle(index);
             if (fibonacciNumberSearchResult.Status != "200")
             {
                 return NotFound(fibonacciNumberSearchResult);
@@ -46,8 +47,8 @@ namespace Fibonacci.API.Controllers
         [HttpPost]
         public async Task<ActionResult<FibonacciNumberDto>> Create([FromBody] FibonacciNumberDto fibonacciNumberDto)
         {
-            var command = new CreateFibonacciNumber(_service);
-            var fibonacciDtoResult = await command.HandleCreateFibonacciNumber(fibonacciNumberDto);
+
+            var fibonacciDtoResult = await _createFibonacciNumber.HandleCreateFibonacciNumber(fibonacciNumberDto);
             if (fibonacciDtoResult.Status != "200")
             {
                 return BadRequest(fibonacciDtoResult);
