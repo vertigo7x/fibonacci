@@ -1,0 +1,13 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: fibonacci
+services:
+- name: fibonacci-api
+  project: Fibonacci.API/Fibonacci.API.csproj
+- name: fibonacci-ui
+  docker-file: ./Fibonacci.UI/Dockerfile
+  image-name: fibonacci-ui-dev
