@@ -1,0 +1,21 @@
+<mat-card class="fibonacci-card">
+    <form [formGroup]="fibonacciForm">
+        <mat-card-title>Calculate Fibonacci n<sup>th</sup> number</mat-card-title>
+        <mat-card-subtitle>Please type in what number in the Fibonacci sequence you want to calculate:
+        </mat-card-subtitle>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>Index to calculate</mat-label>
+                <input formControlName="sequenceIndex" matInput type="number">
+                <mat-error *ngIf="fibonacciForm.controls['sequenceIndex'].invalid">{{ getErrorMessage() }}</mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions>
+            <button color="primary" mat-button (click)="clickCalculateFibonacciNumber()">CALCULATE</button>
+        </mat-card-actions>
+        <mat-card-footer>
+            <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+        </mat-card-footer>
+    </form>
+</mat-card>

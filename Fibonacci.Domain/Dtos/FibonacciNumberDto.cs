@@ -12,6 +12,8 @@ namespace Fibonacci.Domain.Dtos
         /// <summary>
         /// Index in the Fibonacci sequence to calculate
         /// </summary>
+
+        private const string STATUS_CALCULATED = "Calculated";
         public long SequenceIndex { get; set; }
         public long Number { get; set; }
         public DateTime RequestDate { get; set; }
@@ -28,6 +30,7 @@ namespace Fibonacci.Domain.Dtos
         public FibonacciNumberDto(long sequenceIndex)
         {
             SequenceIndex = sequenceIndex >= 1 ? sequenceIndex : throw new ArgumentException("The sequence index must be bigger than ZERO");
+            Status = STATUS_CALCULATED;
         }
 
         public FibonacciNumberDto(FibonacciNumberModel fibonacciNumber)
@@ -35,6 +38,7 @@ namespace Fibonacci.Domain.Dtos
             SequenceIndex = fibonacciNumber.SequenceIndex;
             Number = fibonacciNumber.Number;
             RequestDate = fibonacciNumber.RequestDate;
+            Status = STATUS_CALCULATED;
         }
     }
 }

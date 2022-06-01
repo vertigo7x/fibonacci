@@ -24,7 +24,7 @@ import { Configuration }                                     from '../configurat
 
 
 @Injectable()
-export class FibonacciService {
+export class FibonacciProxyService {
 
     protected basePath = '/';
     public defaultHeaders = new HttpHeaders();

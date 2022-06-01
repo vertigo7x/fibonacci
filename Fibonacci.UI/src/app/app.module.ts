@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { ApiModule } from './api.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Configuration } from './configuration';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/common/material.module';
+import { FibonacciFormComponent } from './fibonacci-form/fibonacci-form.component';
+import { FibonacciListComponent } from './fibonacci-list/fibonacci-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FibonacciFormComponent,
+    FibonacciListComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +25,10 @@ import { Configuration } from './configuration';
       basePath: environment.api
     })),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
