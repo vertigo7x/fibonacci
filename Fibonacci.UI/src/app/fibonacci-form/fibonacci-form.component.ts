@@ -27,7 +27,7 @@ export class FibonacciFormComponent extends FibonacciBaseComponent implements On
 
   initFibonacciForm() {
       this.fibonacciForm = this._fb.group({
-        sequenceIndex: [[0], [Validators.required, Validators.maxLength(5), Validators.pattern('^[0-9]*$'), sequenceIndexValidator()]]
+        sequenceIndex: [0, [Validators.required, Validators.pattern('^[0-9]*$'), sequenceIndexValidator()]]
       });
   }
 
