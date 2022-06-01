@@ -4,7 +4,7 @@ export function sequenceIndexValidator(): ValidatorFn {
 
     const config = {
         errorBiggerThanOne: 'Please type a number bigger than 1.',
-        errorLessThhanFiveDigits: 'Please type a number less than 5 digits.',
+        errorLessThanFiveDigits: 'Please type a number less than 5 digits.',
     }
 
     return (control: AbstractControl): ValidationErrors | null => {
@@ -23,7 +23,7 @@ export function sequenceIndexValidator(): ValidatorFn {
             return {
                 sequenceIndex: {
                     valid: false,
-                    message: config.errorLessThhanFiveDigits
+                    message: config.errorLessThanFiveDigits
                 }
             };
         } else {

@@ -21,6 +21,14 @@ export class FibonacciBaseComponent implements OnDestroy {
     this._subscriptions.push(subscription);
   }
 
+  public get subscriptions(): Array<Subscription> {
+    return this._subscriptions;
+  }
+
+  public getSubscription(subscription: Subscription): Subscription | undefined {
+    return this._subscriptions.find(s => s === subscription);
+  }
+
   public deleteSubscription(subscription: Subscription): void {
     const index = this._subscriptions.indexOf(subscription);
     if (index > -1) {

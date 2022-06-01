@@ -29,7 +29,7 @@ export class FibonacciListComponent extends FibonacciBaseComponent implements On
     }));
   }
 
-  createFibonacciTablePlaceholder(): void {
+  private createFibonacciTablePlaceholder(): void {
     let v = []; 
     for (var i = 0; i < this.PLACEHOLDER_AMMOUNT; i++) { 
       v.push({ 
