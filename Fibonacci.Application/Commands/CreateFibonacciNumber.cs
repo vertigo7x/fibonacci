@@ -26,7 +26,7 @@ namespace Fibonacci.Application.Commands
             if (fibonacciNumberSearchResult.Number == 0)
             {
                 var fibonacciNumber = CalculateFibonacciNumberBySequenceIndex(fibonacciDto.SequenceIndex);
-                var fibonacciDtoResult =  await _service.Create(new FibonacciNumberModel(fibonacciDto.SequenceIndex, fibonacciNumber));
+                var fibonacciDtoResult =  await _service.Create(new FibonacciNumberModel(fibonacciDto.SequenceIndex, fibonacciNumber, fibonacciDto.RequestDate));
                 fibonacciDtoResult.Status = "200";
                 fibonacciDtoResult.Message = "Fibonacci nth number calculated";
                 return fibonacciDtoResult;

@@ -3,14 +3,14 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
-import { FibonacciService } from './api/fibonacci.service';
+import { FibonacciProxyService } from './api/fibonacci.proxy.service';
 
 @NgModule({
   imports:      [],
   declarations: [],
   exports:      [],
   providers: [
-    FibonacciService ]
+    FibonacciProxyService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<ApiModule> {

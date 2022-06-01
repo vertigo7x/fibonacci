@@ -20,5 +20,11 @@
             Number = number;
             SequenceIndex = sequenceIndex >= 1 ? sequenceIndex : throw new ArgumentException("The sequence index must be bigger than ZERO");
         }
+        public FibonacciNumberModel(long sequenceIndex, long number, DateTime requestDate)
+        {
+            Number = number;
+            SequenceIndex = sequenceIndex >= 1 ? sequenceIndex : throw new ArgumentException("The sequence index must be bigger than ZERO");
+            RequestDate = requestDate;
+        }
     }
 }
