@@ -30,7 +30,10 @@ module.exports = function (config) {
       reporters: [
         { type: 'html' },
         { type: 'text-summary' }
-      ]
+      ],
+      preprocessors: {
+        "!**/api/**/*": ["coverage"],
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
@@ -49,8 +52,8 @@ module.exports = function (config) {
         ],
         debug: true,
       },
-    }, 
+    },
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
   });
 };

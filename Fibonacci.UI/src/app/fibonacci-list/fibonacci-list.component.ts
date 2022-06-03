@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { FibonacciBaseComponent } from '../fibonacci-base/fibonacci-base.component';
@@ -16,6 +17,8 @@ export class FibonacciListComponent extends FibonacciBaseComponent implements On
   public displayedColumns: string[] = ['sequenceIndex', 'number', 'requestDate', 'status'];
   public fibonacciNumbers: MatTableDataSource<FibonacciNumberDto> = new MatTableDataSource<FibonacciNumberDto>();
 
+  @ViewChild(MatPaginator) paginator: any = MatPaginator;
+
   constructor(private _fibonacciService: FibonacciService) { super(); }
 
   ngOnInit(): void {
@@ -26,18 +29,20 @@ export class FibonacciListComponent extends FibonacciBaseComponent implements On
     // Get Fibonacci Numbers Observable
     this.addSubscription(this._fibonacciService.getFibonacciNumbers().subscribe(fn => {
       this.fibonacciNumbers = new MatTableDataSource(fn);
+      this.fibonacciNumbers.paginator = this.paginator;
     }));
   }
 
+
   private createFibonacciTablePlaceholder(): void {
-    let v = []; 
+    let v:FibonacciNumberDto[] = []; 
     for (var i = 0; i < this.PLACEHOLDER_AMMOUNT; i++) { 
       v.push({ 
-        'sequenceIndex': 0,
-        'number': 0, 
+        'sequenceIndex': -1,
+        'number': -1, 
         'requestDate': new Date(), 
-        'status': '' 
-      }) 
+        'status': 'placeholder' 
+      });
     } 
     this.fibonacciNumbers.data = v;
   }

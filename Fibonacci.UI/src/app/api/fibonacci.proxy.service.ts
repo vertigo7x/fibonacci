@@ -13,14 +13,14 @@
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
-import { CustomHttpUrlEncodingCodec }                        from '../encoder';
+import { CustomHttpUrlEncodingCodec }                        from './encoder';
 
 import { Observable }                                        from 'rxjs';
 
 import { FibonacciNumberDto } from '../model/fibonacciNumberDto';
 
-import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
-import { Configuration }                                     from '../configuration';
+import { BASE_PATH, COLLECTION_FORMATS }                     from './variables';
+import { Configuration }                                     from './configuration';
 
 
 @Injectable()

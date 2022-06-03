@@ -1,10 +1,11 @@
-import { TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { of } from 'rxjs/internal/observable/of';
 import { throwError } from 'rxjs/internal/observable/throwError';
 import { FibonacciProxyService } from '../api/fibonacci.proxy.service';
 import { FibonacciNumberDto } from '../model/fibonacciNumberDto';
 
 import { FibonacciService } from './fibonacci.service';
+import { NotificationService } from './notification.service';
 
 describe('FibonacciService', () => {
   let service: FibonacciService;
@@ -24,9 +25,15 @@ describe('FibonacciService', () => {
   const fibonacciProxyServiceSpy: any = jasmine.createSpyObj<FibonacciProxyService>('FibonacciProxyService',
     ['apiFibonacciGetAllGet', 'apiFibonacciCreatePost']);
 
+  const notificationServiceSpy: any = jasmine.createSpyObj<NotificationService>('NotificationService',
+    ['showNotification']);
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [{ provide: FibonacciProxyService, useValue: fibonacciProxyServiceSpy }],
+      providers: [
+        { provide: FibonacciProxyService, useValue: fibonacciProxyServiceSpy },
+        { provide: NotificationService, useValue: notificationServiceSpy },
+      ],
     });
     service = TestBed.inject(FibonacciService);
   });
@@ -59,16 +66,18 @@ describe('FibonacciService', () => {
     });
   });
 
-  it('getAllFibonacciNumbers should add FibonacciNumberDto[] to getFibonacciNumbers', () => {
+  it('getAllFibonacciNumbers should add FibonacciNumberDto[] to getFibonacciNumbers', fakeAsync(() => {
     apiFibonacciGetAllGetSpy = fibonacciProxyServiceSpy.apiFibonacciGetAllGet.and.returnValue(of(fakeDataArray));
     service.getAllFibonacciNumbers();
+    // Wait for setTimeout(2000) to finish
+    tick(2010);
     service.getFibonacciNumbers().subscribe((data) => {
       expect(data).toEqual(fakeDataArray);
     });
-  });
+  }));
 
   it('getAllFibonacciNumbers throws ramdom error', () => {
-    apiFibonacciGetAllGetErrorSpy = fibonacciProxyServiceSpy.apiFibonacciGetAllGet.and.returnValue(throwError(() => {}));
+    apiFibonacciGetAllGetErrorSpy = fibonacciProxyServiceSpy.apiFibonacciGetAllGet.and.returnValue(throwError(() => { }));
     service.getAllFibonacciNumbers();
     service.getFibonacciCalculating().subscribe((data) => {
       expect(data).toEqual(false);
@@ -76,11 +85,10 @@ describe('FibonacciService', () => {
   });
 
   it('calculateFibonacciNumber throws ramdom error', () => {
-    apiFibonacciCreatePostErrorSpy = fibonacciProxyServiceSpy.apiFibonacciCreatePost.and.returnValue(throwError(() => {}));
+    apiFibonacciCreatePostErrorSpy = fibonacciProxyServiceSpy.apiFibonacciCreatePost.and.returnValue(throwError(() => { }));
     service.calculateFibonacciNumber(0);
     service.getFibonacciCalculating().subscribe((data) => {
       expect(data).toEqual(false);
     });
   });
-
 });
