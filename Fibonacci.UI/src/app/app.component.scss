@@ -2,3 +2,12 @@
   max-width: 960px;
   margin: 16px auto;
 }
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 32px;
+  height:32px;
+  div {
+   text-align: center;
+  }
+}

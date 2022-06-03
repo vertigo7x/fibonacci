@@ -6,7 +6,7 @@ import { ApiModule } from './api.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Configuration } from './configuration';
+import { Configuration } from './api/configuration';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/common/material.module';
 import { FibonacciFormComponent } from './fibonacci-form/fibonacci-form.component';
